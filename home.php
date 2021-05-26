@@ -22,33 +22,71 @@ if(isset($_GET['deleteproduct']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
     <link rel="stylesheet" href="style.css">
-
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+.hull{
+    border: 5px;
+    background-color:#FCF0DE;
+    padding: 10px;
+}
+</style>
 </head>
 <body>
 <div id="container">
 <form name="formdelet" class="formulaire">
 
-<p><a href="index.php" class="submit">logout</a></p>
+<p><a href="index.php" class="btn btn-primary btn-md mr-1">logout</a></p>
  <?php
     $reqselect="select * from catigories order by catigorie desc";
     $resultat=mysqli_query($mybstock,$reqselect);
 
     $nbr=mysqli_num_rows($resultat);
     echo "<p> Total <b> ".$nbr."</b> Produits</p>";
-  ?> 
-  <p><a href="afficheTable.php" class="submit">view table</a></p>
-  <p><a href="catigorie.php" class="submit">view catigory</a></p>
-  
- 
+  ?>
 </div>
 
-<!-- <div>
-<p><a href="afficheTable.php" class="submit">the food</a></p>
-</div>
-<div>
-<p><a href="afficheTable.php" class="submit">the phone</a></p>
-</div> -->
 </form>
+
+
+
+<div class="container ">
+    
+    
+        <div class="row">
+        <div class="col-lg hull ml-lg-5">
+          <div>
+     
+    <div class="card-body ">
+      <h4 class="card-title">Catigory Page</h4>
+      <p class="card-text">when you wanna see our category the  possible</p>
+      <br>
+      <a href="catigorie.php" class="btn btn-info  ">View Catigory</a>
+    </div>
+     </div>
+                </div>
+                <br><br>
+       <!-- the two -->
+       <div class="col-lg hull ml-lg-5">
+         <div >
+                   
+                    
+                        
+                  
+       
+   
+    <div class="card-body">
+      <h4 class="card-title">Veiw & Add</h4>
+      <p class="card-text">Some product in our stock</p>
+      <br>
+      <a href="afficheTable.php" class="btn btn-info">View table & adding new product</a>
+    </div>
+    </div>
+    </div>
+                </div>
+  </div>
+</div>
 
 </body>
 </html>

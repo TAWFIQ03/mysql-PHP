@@ -27,8 +27,8 @@
   <p><h1><b>Lists the product</b></h1>
   <p class="  col-lg-5"><a href="index.php" class=" submit color btn btn-primary">logout</a></p>
   <?php
-  
-    $go="SELECT * FROM catigories  ";
+  $food=$_GET["nomcaty"];
+    $go="SELECT * FROM catigories where catigorie='$food'";
     $resultat=mysqli_query($mybstock,$go);
 
     $nbr=mysqli_num_rows($resultat);
@@ -56,14 +56,12 @@
       {
       ?>
       <tr class="table table-dark">
-          <td scope="row"><?php 
-          $_SESSION['ID']=$ligne['ID'];
-          echo $ligne['ID'];?></td>
+          <td scope="row"><?php echo $ligne['ID'];?></td>
           <td><?php echo $ligne['name'];?></td>
           <td><?php echo $ligne['quantity'];?></td>
           <td><img src='<?php echo $ligne['img'];?>' class="photopro"></td>
           <td><a class="btn btn-info" href="delete.php?deleteproduct=<?php echo $ligne['ID'];?>">delete</a></td>
-          <td><a class="btn btn-info" href="edit.php?editing=<?php echo $ligne['ID']?>">edit</a></td>
+          <td><a class="btn btn-info" href="edit.php?editing=<?php echo $ligne['ID'];?>">edit</a></td>
 
       </tr>
        <?php

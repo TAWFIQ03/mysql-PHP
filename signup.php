@@ -37,6 +37,20 @@
       
 
     </form>
+
+     <?php
+     
+    // $name = $_POST["username"];
+    
+    // $password = $_POST["upassword"];
+
+    // $call = new mysqli("localhost","root","","mystock");
+    // $save = $call->prepare("insert into folder(user_name,password)values(?,?);");
+    // $save ->bind_param("sss", $name,$password);
+    // $save ->execute();
+    // echo "have been done success";
+
+    ?> 
   </div>
 </body>
 
