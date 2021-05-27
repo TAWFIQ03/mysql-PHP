@@ -26,49 +26,24 @@
 <body>
    <div id="container">
    <form name="formUpdate" method="POST" action="" class="formulaire" enctype="multipart/form-data">
-     <h2 align="center">Update product</h2>
-     <br><br>
-
-     <p><a href="home.php" class="btn btn-primary submit">Back To Table</a></p>
-     <br><br>
-     <div class="form-group">
-     <?php
-    if (isset($_GET['editing'])) {
-        $id = $_GET['editing'];
+   <?php
+    if (isset($_GET['ID'])) {
+        $id = $_GET['ID'];
         $sql = "SELECT * FROM catigories WHERE ID='$id'";
           $result = mysqli_query($mybstock, $sql);
           $ligne=mysqli_fetch_assoc($result);
         
         
       }
-            if(isset($_POST['submit']))
-              {
-                $editting= $_SESSION['ID'];
-                $name=$_POST['name'];
-                $prix=$_POST['buy'];
-                $quantity=$_POST['quantity'];
-                $stars=$_POST['stars'];
-                $catigorie=$_POST['catigorie'];
-                
+   
+   ?>
+     <h2 align="center">Update product</h2>
+     <br><br>
 
-                $image=$_FILES['picture']['tmp_name'];
-
-                $target="myimgs/".$_FILES['picture']['name'];
-
-               $photo= move_uploaded_file($image,$target);
-
-                $reqUpd="UPDATE catigories SET buy='$prix',name='$name'
-                ,quantity='$quantity',stars='$stars',catigorie='$catigorie',img='$photo'
-                 WHERE ID='$editting'";
-                 $resultat=mysqli_query($mybstock, $reqUpd);
-                 if($resultat)
-                 {
-                     echo "uplaod successsss";
-                 }else{
-                     echo "ooops";
-                 }
-              }
-           ?>
+     <p><a href="home.php" class="btn btn-primary submit">Back To Table</a></p>
+     <br><br>
+     <div class="form-group">
+     
 
 
     
@@ -89,8 +64,8 @@
     <input class="form-control col-lg input-lg"  required placeholder="Qantity" value="<?= $ligne['quantity'] ?>" name="quantity"  type="number">
   </div>
   <div class="form-group">
-    <label for="inputlg">Stars</label>
-    <input class="form-control col-lg input-lg"  type="number" name="stars"value="<?= $ligne['stars'] ?>"  min="0" max="5"  placeholder="stars" required   >
+    <label for="inputlg">quantity min</label>
+    <input class="form-control col-lg input-lg"  type="number" name="stars"value="<?= $ligne['stars'] ?>"  min="50"   placeholder="quantity min" required   >
   </div>
   <div class="form-group">
     <label for="inputlg">Category</label>
@@ -98,12 +73,42 @@
   </div>
   <div class="form-group">
     <label for="inputlg">Picture</label>
-    <input class="form-control col-lg input-lg" type="file" value="<?= $ligne['img'] ?>" name="picture" class="thepageadd" value="pc" placeholder="upload pc" required >
+    <input class="form-control col-lg input-lg" type="file" value="<?= $ligne['img'] ?>" name="picture" class="thepageadd" value="pc" placeholder="upload pc" >
   </div>
   <div class="form-group">
     
     <input class="btn btn-primary " type="submit" name="submit" value="submit" class="submit">
   </div>
+  <?php
+   
+            if(isset($_POST['submit']))
+              {
+                $ID= $_POST['ID'];
+                $name=$_POST['name'];
+                $prix=$_POST['buy'];
+                $quantity=$_POST['quantity'];
+                $stars=$_POST['stars'];
+                $catigorie=$_POST['catigorie'];
+                
+
+                $image=$_FILES['picture']['tmp_name'];
+
+                $target="myimgs/".$_FILES['picture']['name'];
+
+               $photo= move_uploaded_file($image,$target);
+
+                $reqUpd="UPDATE catigories SET buy='$prix',name='$name'
+                ,quantity='$quantity',quantity_min='$stars',catigorie='$catigorie',img='$photo'
+                 WHERE ID='$ID'";
+                 $resultat=mysqli_query($mybstock, $reqUpd);
+                 if($resultat)
+                 {
+                     echo "uplaod successsss";
+                 }else{
+                     echo "ooops";
+                 }
+              }
+           ?>
   </form>
 
    </div> 

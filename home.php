@@ -39,7 +39,7 @@ if(isset($_GET['deleteproduct']))
 
 <p><a href="index.php" class="btn btn-primary btn-md mr-1">logout</a></p>
  <?php
-    $reqselect="select * from catigories order by catigorie desc";
+    $reqselect="SELECT * from catigories order by catigorie desc";
     $resultat=mysqli_query($mybstock,$reqselect);
 
     $nbr=mysqli_num_rows($resultat);
@@ -59,10 +59,10 @@ if(isset($_GET['deleteproduct']))
           <div>
      
     <div class="card-body ">
-      <h4 class="card-title">Catigory Page</h4>
+      <h4 class="card-title">list Catigory </h4>
       <p class="card-text">when you wanna see our category the  possible</p>
       <br>
-      <a href="catigorie.php" class="btn btn-info  ">View Catigory</a>
+      <a href="catigorie.php" class="btn btn-info  ">list Catigory</a>
     </div>
      </div>
                 </div>
@@ -77,10 +77,10 @@ if(isset($_GET['deleteproduct']))
        
    
     <div class="card-body">
-      <h4 class="card-title">Veiw & Add</h4>
+      <h4 class="card-title">list product</h4>
       <p class="card-text">Some product in our stock</p>
       <br>
-      <a href="afficheTable.php" class="btn btn-info">View table & adding new product</a>
+      <a href="afficheTable.php" class="btn btn-info">list product</a>
     </div>
     </div>
     </div>

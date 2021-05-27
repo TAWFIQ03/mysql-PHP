@@ -43,6 +43,8 @@
       <th scope="col" class="text-align-center">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Qantity</th>
+      <th scope="col">Qantity min</th>
+      <th scope="col">prix</th>
       <th scope="col">Picture</th>
       <th scope="col">delete</th>
     <th scope="col">editing</th>
@@ -61,9 +63,11 @@
           echo $ligne['ID'];?></td>
           <td><?php echo $ligne['name'];?></td>
           <td><?php echo $ligne['quantity'];?></td>
+          <td><?php echo $ligne['quantity_min'];?></td>
+          <td><?php echo $ligne['buy'];?></td>
           <td><img src='<?php echo $ligne['img'];?>' class="photopro"></td>
           <td><a class="btn btn-info" href="delete.php?deleteproduct=<?php echo $ligne['ID'];?>">delete</a></td>
-          <td><a class="btn btn-info" href="edit.php?editing=<?php echo $ligne['ID']?>">edit</a></td>
+          <td><a class="btn btn-info" href="edit.php?ID=<?php echo $ligne['ID']?>">edit</a></td>
 
       </tr>
        <?php

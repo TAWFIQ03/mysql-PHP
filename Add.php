@@ -45,8 +45,8 @@
     <input class="form-control col-lg input-lg"  required placeholder="Qantity" name="quantity"  type="number">
   </div>
   <div class="form-group">
-    <label for="inputlg">Stars</label>
-    <input class="form-control col-lg input-lg"  type="number" name="stars" min="0" max="5"  placeholder="stars" required   >
+    <label for="inputlg">quantity_min</label>
+    <input class="form-control col-lg input-lg"  type="number" name="stars" min="0" max="5"  placeholder="quantity_min" required   >
   </div>
   <div class="form-group">
     <label for="inputlg">Category</label>
@@ -73,7 +73,7 @@
                     $picture=$_FILES['picture']['tmp_name'];
                     $uplaod="myimgs/".$_FILES['picture']['name'];
                     move_uploaded_file($picture,$uplaod);
-                    $reqAdd="INSERT INTO catigories(`name`, `buy`, `quantity`, `stars`, `catigorie`, `img`) 
+                    $reqAdd="INSERT INTO catigories(`name`, `buy`, `quantity`, `quantity_min`, `catigorie`, `img`) 
                     VALUES ('$name','$buy','$quantity','$stars','$catigorie','$picture')";
                
               $resultat=mysqli_query($mybstock,$reqAdd);

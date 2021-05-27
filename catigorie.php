@@ -29,7 +29,7 @@
 </div>
 
 <?php
-$reqSelect="SELECT DISTINCT catigorie,img FROM catigories";
+$reqSelect="SELECT DISTINCT catigorie FROM catigories";
 $resultat= mysqli_query($mybstock,$reqSelect);
 
 while($ligne=mysqli_fetch_assoc($resultat))
